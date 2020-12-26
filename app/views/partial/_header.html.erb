@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>kanban</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+  <body>  
+  <header class="header">
+    <nav class="nav">
+      <ul class="header_menu">
+        <li class="nav-link">○○さん</li>
+        <li class="header_menu_title"><%= link_to "kanban", root_path, class: "nav-link" %></li>
+        <li>
+          <ul class="header_menu_inner">
+            <li>
+              <%= link_to "#", class: "nav-link" do %>
+                <span class="mr-1">リストを作成</span>
+                <i class="fas fa-edit"></i>
+              <% end %>
+            </li>
+            <li><%= link_to "サインアウト", destroy_user_session_path, class: "nav-link", method: :delete %></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <%= yield %>
+</body>
+</html>

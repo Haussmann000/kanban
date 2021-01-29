@@ -13,12 +13,16 @@
   <header class="header">
     <nav class="nav">
       <ul class="header_menu">
-        <li class="nav-link">○○さん</li>
+        <li class="nav-link">
+            <%= current_user.name %><span> </span>
+            <%= link_to(content_tag(:i, '', class: 'fas fa-pen'), name_edit_path, method: :get) %>
+            <span>　</span>さん
+        </li>
         <li class="header_menu_title"><%= link_to "kanban", root_path, class: "nav-link" %></li>
         <li>
           <ul class="header_menu_inner">
             <li>
-              <%= link_to "#", class: "nav-link" do %>
+              <%= link_to new_list_path, class: "nav-link" do %>
                 <span class="mr-1">リストを作成</span>
                 <i class="fas fa-edit"></i>
               <% end %>
@@ -29,6 +33,6 @@
       </ul>
     </nav>
   </header>
-  <%= yield %>
+  <!--<%= yield %>-->
 </body>
 </html>

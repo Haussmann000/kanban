@@ -15,7 +15,7 @@
       <ul class="header_menu">
         <li class="nav-link">
             <%= current_user.name %><span> </span>
-            <%= link_to(content_tag(:i, '', class: 'fas fa-pen'), name_edit_path, method: :get) %>
+            <%= link_to(content_tag(:i, '', class: 'fas fa-pen'), name_show_path(@name), method: :get) %>
             <span>　</span>さん
         </li>
         <li class="header_menu_title"><%= link_to "kanban", root_path, class: "nav-link" %></li>

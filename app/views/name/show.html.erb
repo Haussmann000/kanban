@@ -1,0 +1,19 @@
+<div class='carddetailPage'>
+  <div class="container">
+    <div class="cardContents">
+      <div class="cardContents_title">
+        <div>ユーザー名</div>
+        <h2><%= current_user.name %></h2>
+      </div>
+      </div>
+      
+      <div class="cardContents_btnArea">
+        <%= link_to "編集する", name_edit_path(@name), class: "edit_btn" %>
+        
+
+      </div>
+
+      
+    </div>
+  </div>
+</div>

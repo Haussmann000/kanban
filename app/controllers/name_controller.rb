@@ -1,17 +1,19 @@
 class NameController < ApplicationController
-before_action :set_editname
-  def name
-    
-  end
+before_action :set_newname, only: %i(edit show update)
+  # def name
+  #   @name = User.new
+  # end
   
   def edit
     
   end
   
+  def show
+  end
+  
   def update
-    
-      if @editname.update_attributes(current_user.id params[:name])
-        redirect_to :root
+      if @name.update(name_params)
+        render "edit"
       else
         render "edit"
       end
@@ -20,11 +22,13 @@ before_action :set_editname
   
   private
   def name_params
-    params.require(:name).permit(:name)
+    params.permit(:name).merge(id: params[:id])
   end
   
-  def set_editname
-    @editname = User.new
+  def set_newname
+    @name = User.new
+    @name = User.find_by(id: params[:id])
+    byebug
   end
 
 

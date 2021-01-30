@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   root 'top#index'
 
   resources :list, only: %i(new create edit update destroy) do
-    resources :card, only: %i(new create show)
+    resources :card, except: %i(index)
   end
   
   get 'name/edit'
+  get 'name/show'
   post 'name/update'
+  patch 'name/update'
 end
